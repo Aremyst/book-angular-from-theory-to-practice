@@ -1,0 +1,16 @@
+{
+  "name": "page130_angularcli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "angular-cli": "^1.0.0-beta.28.3",
+    "npx": "^10.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
