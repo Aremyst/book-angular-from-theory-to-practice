@@ -8,5 +8,6 @@ if (environment.production) {
   enableProdMode();
 }
 
+/* DN: Specify Bootstrapping for Browser, since Angular can be executed in Ionic mobile, NodeJS etc. */
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));
