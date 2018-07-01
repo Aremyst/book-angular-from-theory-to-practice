@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Joke} from "../joke";
 
 @Component({
   selector: 'app-joke',
@@ -20,21 +21,5 @@ export class JokeComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-}
-
-export class Joke {
-  setup: string;
-  punchline: string;
-  hide: boolean;
-
-  constructor(setup: string, punchline: string) {
-    this.setup = setup;
-    this.punchline = punchline;
-    this.hide = true;
-  }
-
-  toggle() {
-    this.hide = !this.hide;
   }
 }
