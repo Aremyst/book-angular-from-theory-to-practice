@@ -19,7 +19,6 @@ export class JokeListComponent implements OnInit {
     ];
   }
 
-  // * ===== 6 ===== *
   addJoke(joke) {
     this.jokes.unshift(joke);
   }
