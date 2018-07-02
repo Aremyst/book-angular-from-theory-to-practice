@@ -5,7 +5,7 @@ import {Joke} from "../joke";
   selector: 'app-joke-form',
   templateUrl: './joke-form.component.html',
   styleUrls: ['./joke-form.component.css'],
-  encapsulation: ViewEncapsulation.Native
+  encapsulation: ViewEncapsulation.None
 })
 export class JokeFormComponent implements OnInit {
 
