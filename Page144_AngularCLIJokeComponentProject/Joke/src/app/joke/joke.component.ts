@@ -7,9 +7,6 @@ import {Joke} from "../joke";
   styleUrls: ['./joke.component.css']
 })
 export class JokeComponent implements OnInit {
-
-  constructor() { }
-
   /* DN: Possible to pass parameter - what name is used in HTML: */
   /* @Input('joke') renamedVar: Joke */
   @Input() joke: Joke;
@@ -20,6 +17,31 @@ export class JokeComponent implements OnInit {
     this.jokeDeleted.emit(this.joke);
   }
 
+  constructor() {
+    console.log(`new - data is ${this.joke}`);
+  }
+  ngOnChanges() {
+    console.log(`ngOnChanges - data is ${this.joke}`);
+  }
   ngOnInit() {
+    console.log(`ngOnInit - data is ${this.joke}`);
+  }
+  ngDoCheck() {
+    console.log("ngDoCheck")
+  }
+  ngAfterContentInit() {
+    console.log("ngAfterContentInit");
+  }
+  ngAfterContentChecked() {
+    console.log("ngAfterContentChecked");
+  }
+  ngAfterViewInit() {
+    console.log("ngAfterViewInit");
+  }
+  ngAfterViewChecked() {
+    console.log("ngAfterViewChecked");
+  }
+  ngOnDestroy() {
+    console.log("ngOnDestroy");
   }
 }
