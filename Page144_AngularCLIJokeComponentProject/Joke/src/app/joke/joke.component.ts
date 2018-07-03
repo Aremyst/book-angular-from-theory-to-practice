@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Joke} from "../joke";
 
 @Component({
@@ -20,8 +20,14 @@ export class JokeComponent implements OnInit {
   constructor() {
     console.log(`new - data is ${this.joke}`);
   }
-  ngOnChanges() {
+  ngOnChanges(changes: SimpleChanges) {
     console.log(`ngOnChanges - data is ${this.joke}`);
+
+    for (let key in changes) {
+      console.log(`${key} changed.
+        Current: ${changes[key].currentValue}.
+        Previous: ${changes[key].previousValue}`);
+    }
   }
   ngOnInit() {
     console.log(`ngOnInit - data is ${this.joke}`);
