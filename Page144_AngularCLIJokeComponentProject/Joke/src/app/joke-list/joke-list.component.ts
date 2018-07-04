@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {Joke} from "../joke";
 import {JokeComponent} from "../joke/joke.component";
 
@@ -16,6 +16,7 @@ export class JokeListComponent implements OnInit,
   ];
 
   @ViewChild(JokeComponent) jokeViewChild: JokeComponent;
+  @ViewChildren(JokeComponent) jokeViewChildren: QueryList<JokeComponent>;
 
   constructor() {
     console.log(`new - jokeViewChild is ${this.jokeViewChild}`);
@@ -23,6 +24,9 @@ export class JokeListComponent implements OnInit,
 
   ngAfterViewInit() {
     console.log(`ngAfterViewInit - jokeViewChild is ${this.jokeViewChild}`);
+
+    let jokes: JokeComponent[] = this.jokeViewChildren.toArray();
+    console.log(jokes);
   }
 
   addJoke() {
