@@ -1,10 +1,14 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import {CarouselItemComponent} from "./carousel-item/carousel-item.component";
+import {CarouselComponent} from "./carousel/carousel.component";
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        CarouselComponent,
+        CarouselItemComponent
       ],
     }).compileComponents();
   }));
