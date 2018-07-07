@@ -8,6 +8,7 @@ import { NgIfExampleComponent } from './ng-if-example/ng-if-example.component';
 import { NgSwitchExampleComponent } from './ng-switch-example/ng-switch-example.component';
 import { NgStyleExampleComponent } from './ng-style-example/ng-style-example.component';
 import { NgClassComponent } from './ng-class/ng-class.component';
+import { NgNonBindableExampleComponent } from './ng-non-bindable-example/ng-non-bindable-example.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NgClassComponent } from './ng-class/ng-class.component';
     NgIfExampleComponent,
     NgSwitchExampleComponent,
     NgStyleExampleComponent,
-    NgClassComponent
+    NgClassComponent,
+    NgNonBindableExampleComponent
   ],
   imports: [
     BrowserModule
