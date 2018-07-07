@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './ng-if-example.component.html',
   styleUrls: ['./ng-if-example.component.css']
 })
-export class NgIfExampleComponent implements OnInit {
+export class NgIfExampleComponent {
   people: any[] = [
     {
       "name": "Douglas Pace",
