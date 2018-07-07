@@ -1,5 +1,12 @@
 <ul *ngFor="let person of people">
-  <li [ngStyle]="{ 'color': getColor(person.country) }">
+  <li [ngStyle]="{ 'color': getColor(person.country), 'font-size.px': 12 }">
+    {{ person.name }} ({{ person.country }})
+  </li>
+</ul>
+
+<h3>NgStyle - specific style instead of style object</h3>
+<ul *ngFor="let person of people">
+  <li [style.color]="getColor(person.country)" [style.font-size.px]="16">
     {{ person.name }} ({{ person.country }})
   </li>
 </ul>
