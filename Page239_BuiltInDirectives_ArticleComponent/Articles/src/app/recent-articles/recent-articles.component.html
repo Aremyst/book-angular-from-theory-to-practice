@@ -1,8 +1,10 @@
 <!-- Container for all articles -->
 <div class="col-md-4">
   <div *ngFor="let article of articles" class="card"
-    [class.card-outline-primary]="article.kind === 'text'"
-    [class.card-outline-danger]="article.kind === 'image'"
+    [ngClass]="{
+      'border-primary': article.kind === 'text',
+      'border-danger': article.kind === 'image'
+    }"
   >
     <div class="card-block">
       <h4 class="card-title">Title</h4>
