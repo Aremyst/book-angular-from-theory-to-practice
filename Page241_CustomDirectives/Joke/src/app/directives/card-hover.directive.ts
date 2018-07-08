@@ -7,7 +7,9 @@ export class CardHoverDirective {
 
   @HostBinding('class.border-primary') private isHovering: boolean;
 
-  @Input() config: any = {
+  @Input('ccCardHover') config: any = {
+    // DN: this is just a default value, the configured value is specified
+    //     in Host Component template.
     querySelector: '.card-text'
   };
 
