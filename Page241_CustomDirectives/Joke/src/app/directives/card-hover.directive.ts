@@ -1,4 +1,4 @@
-import {Directive, ElementRef, HostBinding, HostListener, Renderer} from '@angular/core';
+import {Directive, ElementRef, HostBinding, HostListener, Input, Renderer} from '@angular/core';
 
 @Directive({
   selector: '[ccCardHover]'
@@ -7,6 +7,10 @@ export class CardHoverDirective {
 
   @HostBinding('class.border-primary') private isHovering: boolean;
 
+  @Input() config: any = {
+    querySelector: '.card-text'
+  };
+
   constructor(private el: ElementRef,
               private renderer: Renderer)
   {
@@ -14,14 +18,14 @@ export class CardHoverDirective {
   }
 
   @HostListener('mouseover') onMouseOver() {
-    let part = this.el.nativeElement.querySelector('.card-text');
+    let part = this.el.nativeElement.querySelector(this.config.querySelector);
     this.renderer.setElementStyle(part, 'display', 'block');
 
     this.isHovering = true;
   }
 
   @HostListener('mouseout') onMouseOut() {
-    let part = this.el.nativeElement.querySelector('.card-text');
+    let part = this.el.nativeElement.querySelector(this.config.querySelector);
     this.renderer.setElementStyle(part, 'display', 'none');
 
     this.isHovering = false;
