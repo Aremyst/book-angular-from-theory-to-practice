@@ -1,0 +1,17 @@
+<!-- Container for all articles -->
+<div class="col-md-4">
+  <div *ngFor="let article of articles" class="card"
+    [class.card-outline-primary]="article.kind === 'text'"
+    [class.card-outline-danger]="article.kind === 'image'"
+  >
+    <div class="card-block">
+      <h4 class="card-title">Title</h4>
+      <p *ngIf="article.kind === 'text'" class="card-text">{{article.content}}</p>
+      <p class="card-text">
+        <small class="text-muted">Last updated {{article.date | date: 'MM/dd/yyyy' }}</small>
+      </p>
+      <img *ngIf="article.kind === 'image'" class="card-img-bottom img-fluid"
+           src="{{article.content}}">
+    </div>
+  </div>
+</div>
