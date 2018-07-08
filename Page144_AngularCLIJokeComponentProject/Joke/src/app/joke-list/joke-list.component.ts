@@ -39,11 +39,13 @@ export class JokeListComponent implements OnInit,
     console.log(jokes);
 
     console.log(`ngAfterViewInit - headerElement is ${this.headerElement}`);
-    this.headerElement.nativeElement.textContent = "Best Joke Machine";
+    this.headerElement.nativeElement.textContent = "View Jokes section";
   }
 
-  addJoke() {
-    this.jokes.unshift(new Joke("What did the cheese say when it looked in the mirror", "Hello-me (Halloumi)"));
+  addJoke(joke) {
+    let jokeToAdd = joke || new Joke("What did the cheese say when it looked in the mirror", "Hello-me (Halloumi)");
+
+    this.jokes.unshift(jokeToAdd);
   }
 
   deleteAllJokes() {
