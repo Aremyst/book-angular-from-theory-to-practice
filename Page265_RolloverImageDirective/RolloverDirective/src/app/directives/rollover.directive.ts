@@ -1,4 +1,4 @@
-import {Directive, ElementRef, HostListener, Input, Renderer} from '@angular/core';
+import {Directive, ElementRef, HostBinding, HostListener, Input, Renderer} from '@angular/core';
 
 @Directive({
   selector: "img[ccRollover]"
@@ -9,13 +9,13 @@ export class RolloverImageDirective {
     over: 'dummyImagePath'
   };
 
-  constructor(private el: ElementRef,
-              private renderer: Renderer)
-  {
-  }
+  @HostBinding('src') private imagePath: string;
 
-  ngAfterViewInit() {
-    console.log('on View Init');
+  // ngOnInit and not ngAfterViewInit, because if we change parent property from child directive after DOM update operation,
+  // we'll get "ExpressionChangedAfterItHasBeenCheckedError".
+  // Details: https://blog.angularindepth.com/everything-you-need-to-know-about-the-expressionchangedafterithasbeencheckederror-error-e3fd9ce7dbb4
+  ngOnInit() {
+    console.log('[H] ngOnInit');
     this.setInitialImage();
   }
 
@@ -28,11 +28,11 @@ export class RolloverImageDirective {
   }
 
   private setHoveredImage() {
-    this.renderer.setElementAttribute(this.el.nativeElement, 'src', this.config.over);
+    this.imagePath = this.config.over;
   }
 
   private setInitialImage() {
-    this.renderer.setElementAttribute(this.el.nativeElement, 'src', this.config.initial);
+    this.imagePath = this.config.initial;
   }
 
 
