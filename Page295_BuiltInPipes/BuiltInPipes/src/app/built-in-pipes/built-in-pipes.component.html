@@ -1,0 +1,10 @@
+<div class="card card-block">
+  <h4 class="card-title">Currency</h4>
+    <div class="card-text">
+      <p ngNonBindable>{{ 1234.56 | currency:'GBP' }}</p>
+      <p>{{ 1234.56 | currency:"GBP" }}</p>
+
+      <p ngNonBindable>{{ 1234.56 | currency:'GBP':'false' }}</p>
+      <p>{{ 1234.56 | currency:"GBP":false }}</p>
+    </div>
+</div>
