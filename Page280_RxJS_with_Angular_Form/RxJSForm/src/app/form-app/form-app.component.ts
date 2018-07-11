@@ -27,15 +27,19 @@ export class FormAppComponent {
       "email": this.email
     });
     this.form.valueChanges
+      // Check if the whole form is valid
       .filter(data => this.form.valid)
+      // Remove tags like <script>, <html> and other.
       .map(data => {
         data.comment = data.comment.replace(/<(?:.|\n)*?>/gm, '');
         return data
       })
+      // Set lastUpdateTS Date object to current time.
       .map(data => {
         data.lastUpdateTS = new Date();
         return data
       })
+      // Output data after filter and map(s)
       .subscribe( data => console.log(JSON.stringify(data)));
   }
 
