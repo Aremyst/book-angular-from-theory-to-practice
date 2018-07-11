@@ -1,5 +1,5 @@
 <div class="card card-block">
-  <h4 class="card-title">Currency</h4>
+  <h4 class="card-title">currency Pipe</h4>
     <div class="card-text">
       <p ngNonBindable>{{ 1234.56 | currency:'GBP' }}</p>
       <p>{{ 1234.56 | currency:"GBP" }}</p>
@@ -9,7 +9,7 @@
     </div>
 </div>
 <div class="card card-block">
-  <h4 class="card-title">Date</h4>
+  <h4 class="card-title">date Pipe</h4>
   <div class="card-text">
     <p ngNonBindable>{{ dateVal | date: 'shortTime' }}</p>
     <p>{{ dateVal | date: 'shortTime' }}</p>
@@ -19,5 +19,15 @@
     <br/>
     <p ngNonBindable>{{ dateVal | date: 'd/M/y' }}</p>
     <p>{{ dateVal | date: 'd/M/y' }}</p>
+  </div>
+</div>
+<div class="card card-block">
+  <h4 class="card-title">number(decimal) Pipe</h4>
+  <div class="card-text">
+    <p ngNonBindable>{{ 3.14159265 | number: '3.1-2' }}</p>
+    <p>{{ 3.14159265 | number: '3.1-2' }}</p>
+    <br/>
+    <p ngNonBindable>{{ 3.14159265 | number: '1.4-4' }}</p>
+    <p>{{ 3.14159265 | number: '1.4-4' }}</p>
   </div>
 </div>
