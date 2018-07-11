@@ -3,8 +3,21 @@
     <div class="card-text">
       <p ngNonBindable>{{ 1234.56 | currency:'GBP' }}</p>
       <p>{{ 1234.56 | currency:"GBP" }}</p>
-
+      <br/>
       <p ngNonBindable>{{ 1234.56 | currency:'GBP':'false' }}</p>
       <p>{{ 1234.56 | currency:"GBP":false }}</p>
     </div>
+</div>
+<div class="card card-block">
+  <h4 class="card-title">Date</h4>
+  <div class="card-text">
+    <p ngNonBindable>{{ dateVal | date: 'shortTime' }}</p>
+    <p>{{ dateVal | date: 'shortTime' }}</p>
+    <br/>
+    <p ngNonBindable>{{ dateVal | date:'fullDate' }}</p>
+    <p>{{ dateVal | date: 'fullDate' }}</p>
+    <br/>
+    <p ngNonBindable>{{ dateVal | date: 'd/M/y' }}</p>
+    <p>{{ dateVal | date: 'd/M/y' }}</p>
+  </div>
 </div>

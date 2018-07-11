@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./built-in-pipes.component.css']
 })
 export class BuiltInPipesComponent implements OnInit {
+  dateVal: Date = new Date();
+  jsonVal: Object = {moo: 'foo', goo: {too: 'new'}};
 
   constructor() { }
 
