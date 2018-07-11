@@ -31,3 +31,13 @@
     <p>{{ 3.14159265 | number: '1.4-4' }}</p>
   </div>
 </div>
+<div class="card card-block">
+  <h4 class="card-title">JsonPipe</h4>
+  <div class="card-text">
+    <p ngNonBindable>{{ jsonVal }}</p>
+    <p>{{ jsonVal }}</p>
+    <br/>
+    <p ngNonBindable>{{ jsonVal | json }}</p>
+    <p>{{ jsonVal | json }}</p>
+  </div>
+</div>
