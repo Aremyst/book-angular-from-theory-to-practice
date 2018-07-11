@@ -27,6 +27,8 @@ export class FormAppComponent {
       "email": this.email
     });
     this.form.valueChanges
+      // DN: not clear why author used distinctUntilChanged here, now clear what he accomplishes by this.
+      // .distinctUntilChanged()
       // Check if the whole form is valid
       .filter(data => this.form.valid)
       // Remove tags like <script>, <html> and other.
@@ -39,6 +41,8 @@ export class FormAppComponent {
         data.lastUpdateTS = new Date();
         return data
       })
+      // Output only if user didn't type for 2 seconds
+      .debounceTime(2000)
       // Output data after filter and map(s)
       .subscribe( data => console.log(JSON.stringify(data)));
   }
