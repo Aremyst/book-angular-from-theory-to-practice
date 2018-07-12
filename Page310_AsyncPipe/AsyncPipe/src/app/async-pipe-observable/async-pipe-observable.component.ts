@@ -7,11 +7,10 @@ import {Observable} from "rxjs/Rx";
   styleUrls: ['./async-pipe-observable.component.css']
 })
 export class AsyncPipeObservableComponent  {
-  observableData: number;
-  subscription: any = null;
+  observable: Observable<number>;
 
   constructor() {
-    this.subscribeObservable();
+    this.observable = this.getObservable();
   }
 
   getObservable() {
@@ -19,16 +18,5 @@ export class AsyncPipeObservableComponent  {
       .interval(1000)
       .take(10)
       .map((v) => v * v);
-  }
-
-  subscribeObservable() {
-    this.subscription = this.getObservable()
-      .subscribe( v => this.observableData = v);
-  }
-
-  ngOnDestroy() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
   }
 }
