@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AsyncPipeComponent } from './async-pipe/async-pipe.component';
+import { AsyncPipeObservableComponent } from './async-pipe-observable/async-pipe-observable.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AsyncPipeComponent
+    AsyncPipeComponent,
+    AsyncPipeObservableComponent
   ],
   imports: [
     BrowserModule
