@@ -6,12 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./async-pipe.component.css']
 })
 export class AsyncPipeComponent implements OnInit {
-  promiseData: string;
+  promise: Promise<string>;
 
   constructor() {
     // Lambda function's "this" is the correct "this"(current AsyncPipeComponent), in contrast to
     // if we would've used "(function(resolvedValue) { this.promiseData = resolvedValue; }).
-    this.getPromise().then(resolvedValue => this.promiseData = resolvedValue);
+    this.promise = this.getPromise();
   }
 
   getPromise() {
