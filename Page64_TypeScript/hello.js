@@ -1,2 +1,2 @@
-"use strict";
-console.log('hello 123456');
+var x = 23;
+console.log("x = " + x);
