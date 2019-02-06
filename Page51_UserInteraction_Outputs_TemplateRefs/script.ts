@@ -16,8 +16,8 @@ class AppComponent {
 @Component({
     selector: 'joke-list',
     template: `
-        <joke-form (jokeCreated)="addJoke($event)"></joke-form>
-        <joke *ngFor="let joke of jokes" [joke]="joke"></joke>
+        <joke-form (jokeCreated)="addJoke($event)" #jokeFormComponent></joke-form>
+        <joke *ngFor="let joke of jokes" [joke]="joke" [jokeFormComponent]="jokeFormComponent"></joke>
     `
 })
 class JokeListComponent {
@@ -41,7 +41,7 @@ class JokeListComponent {
     selector: 'joke',
     template: `
         <div class="card card-block">
-            <h4 class="card-title">{{joke.setup}}</h4>
+            <h4 class="card-title" (click)="jokeFormComponent.outputSomething()">{{joke.setup}}</h4>
             <p class="card-text" [hidden]="joke.hide">{{joke.punchline}}</p>
             <a (click)="joke.toggle()" class="btn btn-warning">Tell Me</a>
         </div>
@@ -49,6 +49,7 @@ class JokeListComponent {
 })
 class JokeComponent {
     @Input('joke') joke: Joke;
+    @Input() jokeFormComponent: JokeFormComponent;
 }
 
 class Joke {
@@ -87,6 +88,10 @@ export class JokeFormComponent {
 
     createJoke() {
         this.jokeCreated.emit(new Joke("A setup", "A punchline"));
+    }
+
+    outputSomething() {
+        console.log('Output from JokeFormComponent');
     }
 }
 
