@@ -17,7 +17,7 @@ class AppComponent {
     selector: 'joke-list',
     template: `
         <joke-form (jokeCreated)="addJoke($event)"></joke-form>
-        <joke *ngFor="let joke of jokes" [joke]="joke"></joke>
+        <joke *ngFor="let joke of jokes" [joke]="joke" (jokeDeleted)="deleteJoke($event)"></joke>
     `
 })
 class JokeListComponent {
@@ -34,6 +34,15 @@ class JokeListComponent {
     addJoke(joke: Joke) {
         this.jokes.unshift(joke);
     }
+
+    deleteJoke(joke: Joke) {
+        for (let i = 0; i < this.jokes.length; i++) {
+            if (this.jokes[i] === joke) {
+                this.jokes.splice(i, 1);
+                break;
+            }
+        }
+    }
 }
 
 
@@ -44,11 +53,17 @@ class JokeListComponent {
             <h4 class="card-title">{{joke.setup}}</h4>
             <p class="card-text" [hidden]="joke.hide">{{joke.punchline}}</p>
             <a (click)="joke.toggle()" class="btn btn-warning">Tell Me</a>
+            <button type="button" class="btn btn-primary" (click)="deleteJoke()">Delete</button>
         </div>
     `
 })
 class JokeComponent {
     @Input('joke') joke: Joke;
+    @Output() jokeDeleted = new EventEmitter<Joke>();
+
+    deleteJoke() {
+        this.jokeDeleted.emit(this.joke);
+    }
 }
 
 class Joke {
