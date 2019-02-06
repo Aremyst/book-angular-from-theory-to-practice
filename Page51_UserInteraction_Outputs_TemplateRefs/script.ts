@@ -73,20 +73,20 @@ class Joke {
         <div class="card card-block">
             <h4 class="card-title">Create Joke</h4>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Enter the setup">
+                <input type="text" class="form-control" #setup placeholder="Enter the setup">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Enter the punchline">
+                <input type="text" class="form-control" #punchline placeholder="Enter the punchline">
             </div>
-            <button type="button" class="btn btn-primary" (click)="createJoke()">Create</button>
+            <button type="button" class="btn btn-primary" (click)="createJoke(setup.value, punchline.value)">Create</button>
         </div>
     `
 })
 export class JokeFormComponent {
     @Output() jokeCreated = new EventEmitter<Joke>();
 
-    createJoke() {
-        this.jokeCreated.emit(new Joke("A setup", "A punchline"));
+    createJoke(setup: string, punchline: string) {
+        this.jokeCreated.emit(new Joke(setup, punchline));
     }
 }
 
