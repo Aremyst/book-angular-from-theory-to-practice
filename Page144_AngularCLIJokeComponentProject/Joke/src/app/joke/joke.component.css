@@ -1,0 +1,6 @@
+/* Change default Bootstrap styles */
+.card {
+  width: 50%;
+  margin-left: 20px;
+  margin-top: 20px;
+}
